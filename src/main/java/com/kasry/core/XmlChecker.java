@@ -5,9 +5,7 @@ import com.kasry.dataModels.Tree;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class XmlChecker {
     private String xmlPath;
@@ -62,17 +60,66 @@ public class XmlChecker {
         constructSuccTable();
     }
 
+    /**
+     * In this method we do construct the successors' table
+     * But first we do convert the RegEx to the postfix form
+     */
     private void constructSuccTable() {
         Map<String, String> regExs = parseDtd();
-        for (Map.Entry<String, String> entry : regExs.entrySet())
-        {
+        Map<String, List<String>> succesorMatrix = new HashMap<>();
+        for (Map.Entry<String, String> entry : regExs.entrySet()) {
+            String postFixRegEx = null;
+            Stack<String> stack = new Stack<>();
             System.out.println(entry.getKey() + "/" + entry.getValue());
-            //We'll iterate through all the element of the regEx t construct the successorship
-            for (int i = 0; i < entry.getValue().length(); i++) {
-                char c = entry.getValue().charAt(i);
+            //Updating all regular expressions to postfix notation
+            regExToPostFix(entry);
+            //We'll iterate through all the element of the regEx t construct the successor's table
+            //While iterating we'll need the current & the next element, and a stack
+            for (int i = 0; i < entry.getValue().length()-1; i++) {
+                char current = entry.getValue().charAt(i);
+                char next = entry.getValue().charAt(i+1);
+                char lastEltAdded = '0';
+                // We verify the stack for the first element
+                if (stack.isEmpty()) {
+                    List<String> iniSucc = new ArrayList<String>();
+                    iniSucc.add(Character.toString(current));
+                    succesorMatrix.put("init", iniSucc);
+                    stack.push(Character.toString(current));
+                    lastEltAdded = current;
+                }
+                else {
+                    //Base case is this one
+                    if (current != '.' & current != '?' & current != '*' & current != '+') {
+                        List<String> eltSucc = new ArrayList<String>();
+                        eltSucc.add(Character.toString(current));
+                        succesorMatrix.put(Character.toString(current), eltSucc);
+                        stack.push(Character.toString(current));
+                        lastEltAdded = current;
+                    }
+                    //The only case where we do something according to current, is for '?' or '*'
+                    if (current == '?' | current == '*') {
+                        //We have to add the next char to the "LAST element added to the stack"
+
+                    }
+                    else {
+                        //Add next to
+                    }
+                }
 //                System.out.println(c);
             }
         }
+    }
+
+    private void regExToPostFix(Map.Entry<String, String> entry) {
+        String postFixRegEx;
+        if (entry.getValue().equals("_")) {
+            postFixRegEx = entry.getValue();
+            entry.setValue(postFixRegEx);
+        } else {
+            postFixRegEx = RegExConverter.infixToPostfix(entry.getValue());
+            entry.setValue(postFixRegEx);
+        }
+        System.out.println(postFixRegEx);
     }
 
     /**
