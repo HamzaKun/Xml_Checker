@@ -1,6 +1,8 @@
 package com.kasry.core;
 
+import com.kasry.dataModels.Automaton;
 import com.kasry.dataModels.Node;
+import com.kasry.dataModels.State;
 import com.kasry.dataModels.Tree;
 
 import java.io.BufferedReader;
@@ -57,14 +59,89 @@ public class XmlChecker {
     }
 
     public void checkValidity() {
-        constructSuccTable();
+        //Get all the regular expressions, and for each construct the NFA
+        Map<String, String> regExs = parseDtd();
+        Map<String, Automaton> regExNFA = new HashMap<>(regExs.size());
+//        constructSuccTable();
+        for (Map.Entry<String, String> entry : regExs.entrySet()) {
+            //Construct the NFA of all the regular expressions of the elements
+            System.out.println("The automaton of " + entry.getKey() +", "+entry.getValue());
+            Automaton thompsonAutomaton = thompsonConstruct(RegExConverter.infixToPostfix(entry.getValue()));
+            System.out.println(thompsonAutomaton);
+            regExNFA.put(entry.getKey(), thompsonAutomaton);
+        }
+    }
+
+    public Automaton thompsonConstruct(String regEx) {
+        Stack<Automaton> stack = new Stack<>();
+        Automaton automaton = null;
+        for (int i = 0; i < regEx.length(); i++) {
+            switch (regEx.charAt(i)) {
+                case '_':
+                    State startFinish = new State();
+                    stack.push(new Automaton(startFinish, startFinish));
+                    break;
+                case '.':
+                    Automaton automatonF = stack.pop();
+                    Automaton automatonI = stack.pop();
+                    //To link the two automatons
+                    automatonI.getFinish().setEpsilon(automatonF.getStart().getEpsilon());
+                    automatonI.getFinish().setTransitions(automatonF.getStart().getTransitions());
+                    //Create the updated automaton
+                    Automaton concatenated = new Automaton(automatonI.getStart(), automatonF.getFinish());
+                    stack.push(concatenated);
+                    break;
+                case '*':
+                    automaton = stack.pop();
+                    automaton.addEpsilonFinishStart();
+                    State nStart = new State();
+                    State nFinish = new State();
+                    automaton.getFinish().addEpsilon(nFinish);
+                    nStart.addEpsilon(automaton.getStart());
+                    nStart.addEpsilon(nFinish);
+                    Automaton kleeneStarAut = new Automaton(nStart, nFinish);
+                    stack.push(kleeneStarAut);
+                    break;
+                case '+':
+                    automaton = stack.pop();
+                    automaton.addEpsilonFinishStart();
+                    State pStart = new State();
+                    State pFinish = new State();
+                    automaton.getFinish().addEpsilon(pFinish);
+                    pStart.addEpsilon(automaton.getStart());
+                    Automaton plusAut = new Automaton(pStart, pFinish);
+                    stack.push(plusAut);
+                    break;
+                case '?':
+                    automaton = stack.pop();
+                    State qStart = new State();
+                    State qFinish = new State();
+                    automaton.getFinish().addEpsilon(qFinish);
+                    qStart.addEpsilon(automaton.getStart());
+                    qStart.addEpsilon(qFinish);
+                    Automaton questionAut = new Automaton(qStart, qFinish);
+                    stack.push(questionAut);
+                    break;
+                default:
+                    //Create transitions
+                    State finish = new State();
+                    //Transition added during construction
+                    State start = new State(regEx.charAt(i), finish);
+                    automaton = new Automaton(start, finish);
+//                    start.addTransition(regEx.charAt(i), finish);
+                    stack.push(automaton);
+                    break;
+            }
+        }
+        return stack.pop();
     }
 
     /**
      * In this method we do construct the successors' table
      * But first we do convert the RegEx to the postfix form
      */
-    private void constructSuccTable() {
+    @Deprecated
+    private void glushkovConstruct() {
         Map<String, String> regExs = parseDtd();
         Map<String, List<String>> succesorMatrix = new HashMap<>();
         for (Map.Entry<String, String> entry : regExs.entrySet()) {
@@ -72,12 +149,17 @@ public class XmlChecker {
             Stack<String> stack = new Stack<>();
             System.out.println(entry.getKey() + "/" + entry.getValue());
             //Updating all regular expressions to postfix notation
-            regExToPostFix(entry);
+            postFixRegEx = RegExConverter.infixToPostfix(entry.getValue());
+            entry.setValue(postFixRegEx);
+//            regExToPostFix(entry);
             //We'll iterate through all the element of the regEx t construct the successor's table
             //While iterating we'll need the current & the next element, and a stack
-            for (int i = 0; i < entry.getValue().length()-1; i++) {
+            for (int i = 0; i < entry.getValue().length(); i++) {
                 char current = entry.getValue().charAt(i);
-                char next = entry.getValue().charAt(i+1);
+                char next = '0';
+                if (i < entry.getValue().length()){
+                    next = entry.getValue().charAt(i+1);
+                }
                 char lastEltAdded = '0';
                 // We verify the stack for the first element
                 if (stack.isEmpty()) {
@@ -88,38 +170,60 @@ public class XmlChecker {
                     lastEltAdded = current;
                 }
                 else {
-                    //Base case is this one
+                    //Base case is this current is element and next is also element
                     if (current != '.' & current != '?' & current != '*' & current != '+') {
+                        //Updating the stack
+                        stack.push(Character.toString(current));
+                        //Updating the successors matrix
                         List<String> eltSucc = new ArrayList<String>();
                         eltSucc.add(Character.toString(current));
                         succesorMatrix.put(Character.toString(current), eltSucc);
-                        stack.push(Character.toString(current));
                         lastEltAdded = current;
+                        if (next == '+' | next =='*') {
+                            eltSucc.add(Character.toString(current));
+                            succesorMatrix.put(Character.toString(current), eltSucc);
+                        }
+                    } else if(current == '+') {
+                        //Update the stack
+                        String tmp1 = stack.pop();
+                        stack.push(tmp1+Character.toString(current));
+                        //Updating the successors matrix
+                        List<String> eltSucc = succesorMatrix.get(Character.toString(lastEltAdded));
+                        eltSucc.add(Character.toString(next));
+                        succesorMatrix.put(Character.toString(current), eltSucc);
                     }
                     //The only case where we do something according to current, is for '?' or '*'
-                    if (current == '?' | current == '*') {
+                    else if (current == '?' | current == '*') {
+                        //Update the stack
+                        String tmp1 = stack.pop();
+                        stack.push(tmp1+Character.toString(current));
                         //We have to add the next char to the "LAST element added to the stack"
+                        if (next != '.' & next != '*' & next != '?' & next != '+') {
+                            //Update the successors matrix
+                            List<String> eltSucc = succesorMatrix.get(Character.toString(lastEltAdded));
+                            eltSucc.add(Character.toString(next));
+                            succesorMatrix.put(Character.toString(current), eltSucc);
+                        }
+                    } else if(current == '.') {
+                        //Update the stack
+                        String tmp1 = stack.pop();
+                        String tmp2 = stack.pop();
+                        stack.push(tmp1+Character.toString(current)+tmp2);
+                        if (next == '*' | next == '+') {
+                            //Update the successors matrix
+                            List<String> eltSucc = succesorMatrix.get(Character.toString(lastEltAdded));
+                            eltSucc.add(Character.toString(stack.peek().charAt(0)));
+                            succesorMatrix.put(Character.toString(current), eltSucc);
+                        }else if(next != '.' & next != '*' & next != '?' & next != '+'){
 
-                    }
-                    else {
+                        }
+                    } else {
                         //Add next to
                     }
                 }
 //                System.out.println(c);
             }
         }
-    }
-
-    private void regExToPostFix(Map.Entry<String, String> entry) {
-        String postFixRegEx;
-        if (entry.getValue().equals("_")) {
-            postFixRegEx = entry.getValue();
-            entry.setValue(postFixRegEx);
-        } else {
-            postFixRegEx = RegExConverter.infixToPostfix(entry.getValue());
-            entry.setValue(postFixRegEx);
-        }
-        System.out.println(postFixRegEx);
     }
 
     /**
