@@ -61,11 +61,15 @@ public class XmlChecker {
     public void checkValidity() {
         //Get all the regular expressions, and for each construct the NFA
         Map<String, String> regExs = parseDtd();
-        thompsonNfaToDfa(regExs);
+        Map<String, Automaton> regExDFA = thompsonNfaToDfa(regExs);
+        //Verifying the validity of the xml file according to the dtd
+        boolean valid = xmlTree.checkValidity(regExDFA);
+        System.out.println(valid);
     }
 
-    private void thompsonNfaToDfa(Map<String, String> regExs) {
+    private Map<String, Automaton> thompsonNfaToDfa(Map<String, String> regExs) {
         Map<String, Automaton> regExNFA = new HashMap<>(regExs.size());
+        Map<String, Automaton> regExDFA = new HashMap<>(regExs.size());
 //        constructSuccTable();
         for (Map.Entry<String, String> entry : regExs.entrySet()) {
 
@@ -87,7 +91,9 @@ public class XmlChecker {
             System.out.println(dfaAutomaton);
 //            System.out.println();
             regExNFA.put(entry.getKey(), thompsonAutomaton);
+            regExDFA.put(entry.getKey(), dfaAutomaton);
         }
+        return regExDFA;
     }
 
     private Automaton constructDfa(Map<String, Set<State>> closure, Automaton nfa) {

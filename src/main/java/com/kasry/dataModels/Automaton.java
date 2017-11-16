@@ -136,4 +136,31 @@ public class Automaton {
                 ", finishStates=" + finalStates +
                 '}';
     }
+
+    /**
+     * Verifies if the string corresponds to the regEx
+     * @param childrenString represents the children of an element as a String
+     * @return
+     */
+    public boolean match(String childrenString) {
+        boolean isMatched = true;
+        State currentState = start;
+        if(childrenString.length() == 0){
+            isMatched = finalStates.contains(start);
+        }else {
+            //We iterate through all the characters of the String
+            for (int i = 0; (i < childrenString.length() & isMatched); i++) {
+                char current = childrenString.charAt(i);
+                currentState = currentState.getTransitions().get(current);
+                if ( currentState != null) {
+                    if (i == childrenString.length()-1) {
+                        isMatched = finalStates.contains(currentState);
+                    }
+                } else {
+                    isMatched = false;
+                }
+            }
+        }
+        return isMatched;
+    }
 }

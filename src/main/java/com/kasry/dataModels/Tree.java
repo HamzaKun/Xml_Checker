@@ -1,6 +1,6 @@
 package com.kasry.dataModels;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Tree {
     private Node root;
@@ -26,5 +26,33 @@ public class Tree {
         return "Tree{" +
                 "root=" + root +
                 '}';
+    }
+
+    /**
+     * Checking the validity of the document using the regEXDfa
+     * @param regExDFA returns for each element it's DFA automaton
+     * @return if the documents is valid or not
+     */
+    public boolean checkValidity(Map<String, Automaton> regExDFA) {
+        boolean isValid = true;
+        Stack<Node> stack = new Stack<>();
+        Set<Node> visitedNodes = new HashSet<>();
+        stack.push(root);
+        while (!stack.isEmpty() && isValid) {
+            Node current = stack.pop();
+            if(!visitedNodes.contains(current)) {
+                visitedNodes.add(current);
+                Automaton currentAutomato = regExDFA.get(current.getData());
+                String childrenString = current.childrendAsString();
+                isValid = currentAutomato.match(childrenString);
+                for (Node child :
+                        current.getChildren()) {
+                    stack.push(child);
+                }
+
+            }
+        }
+
+        return isValid;
     }
 }

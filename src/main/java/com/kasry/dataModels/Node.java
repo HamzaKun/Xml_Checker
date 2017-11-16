@@ -20,6 +20,15 @@ public class Node {
         children = new ArrayList<Node>();
     }
 
+    public String childrendAsString() {
+        String childrenString = "";
+        for (Node child :
+                children) {
+            childrenString = childrenString.concat(child.getData());
+        }
+        return childrenString;
+    }
+
     public void addChild(Node child) {
         children.add(child);
     }
