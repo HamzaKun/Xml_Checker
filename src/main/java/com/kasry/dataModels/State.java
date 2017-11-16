@@ -66,19 +66,47 @@ public class State {
         this.epsilon = epsilon;
     }
 
-    @Override
+/*    @Override
     public String toString() {
         String str = "{";
         for (Map.Entry<Character, State> entry : transitions.entrySet()) {
             str = str.concat(Character.toString(entry.getKey()));
             str = str.concat(": " + entry.getValue());
         }
+        String epsi = "{";
+
+        epsi = epsi.concat(" }");
         str = str.concat(" }");
         String string = "State{" +
                 "name='" + name + '\'' +
                 ", transitions=" + str +
-                ", epsilon=" + epsilon.size() +
+                ", epsilon=" + epsi +
                 '}';
         return string;
+    }*/
+    //Using a to String method as DFS
+    public String toString(Set<String> visited) {
+        if (visited.contains(this.getName())) {
+            return this.getName();
+        } else {
+            String str = "{" + "name: "+ this.getName()+ " Transitions: [";
+            visited.add(this.getName());
+            for (Map.Entry<Character, State> entry : transitions.entrySet()) {
+                str = str.concat(Character.toString(entry.getKey()));
+                String recString = entry.getValue().toString(visited);
+                if (recString == null)
+                    str = str.concat(": None");
+                else
+                    str = str.concat(recString);
+            }
+            str = str.concat("], epsilon : [");
+            for (State state :
+                    this.epsilon) {
+                String recString = state.toString(visited);
+                str = str.concat(recString);
+            }
+            str = str.concat(" ]}");
+            return str;
+        }
     }
 }

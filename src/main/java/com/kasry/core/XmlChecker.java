@@ -68,6 +68,16 @@ public class XmlChecker {
             System.out.println("The automaton of " + entry.getKey() +", "+entry.getValue());
             Automaton thompsonAutomaton = thompsonConstruct(RegExConverter.infixToPostfix(entry.getValue()));
             System.out.println(thompsonAutomaton);
+            Map<String, Set<State>> closure = thompsonAutomaton.getEpsilonClosure(thompsonAutomaton.getStart(), new HashSet<String>());
+            for (Map.Entry<String, Set<State>> tmp : closure.entrySet()) {
+                System.out.print(tmp.getKey() + ": ");
+                for (State st :
+                        tmp.getValue()) {
+                    System.out.print(st.getName());
+                }
+                System.out.println();
+            }
+//            System.out.println();
             regExNFA.put(entry.getKey(), thompsonAutomaton);
         }
     }
