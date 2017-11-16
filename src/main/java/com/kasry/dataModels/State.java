@@ -66,24 +66,10 @@ public class State {
         this.epsilon = epsilon;
     }
 
-/*    @Override
+    @Override
     public String toString() {
-        String str = "{";
-        for (Map.Entry<Character, State> entry : transitions.entrySet()) {
-            str = str.concat(Character.toString(entry.getKey()));
-            str = str.concat(": " + entry.getValue());
-        }
-        String epsi = "{";
-
-        epsi = epsi.concat(" }");
-        str = str.concat(" }");
-        String string = "State{" +
-                "name='" + name + '\'' +
-                ", transitions=" + str +
-                ", epsilon=" + epsi +
-                '}';
-        return string;
-    }*/
+        return "name='" + name ;
+    }
     //Using a to String method as DFS
     public String toString(Set<String> visited) {
         if (visited.contains(this.getName())) {
@@ -93,9 +79,11 @@ public class State {
             visited.add(this.getName());
             for (Map.Entry<Character, State> entry : transitions.entrySet()) {
                 str = str.concat(Character.toString(entry.getKey()));
-                String recString = entry.getValue().toString(visited);
+                String recString = null;
+                if (entry.getValue() != null)
+                    recString = entry.getValue().toString(visited);
                 if (recString == null)
-                    str = str.concat(": None");
+                    str = str.concat(": None ");
                 else
                     str = str.concat(recString);
             }

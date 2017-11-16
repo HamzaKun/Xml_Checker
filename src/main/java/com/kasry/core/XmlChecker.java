@@ -61,9 +61,14 @@ public class XmlChecker {
     public void checkValidity() {
         //Get all the regular expressions, and for each construct the NFA
         Map<String, String> regExs = parseDtd();
+        thompsonNfaToDfa(regExs);
+    }
+
+    private void thompsonNfaToDfa(Map<String, String> regExs) {
         Map<String, Automaton> regExNFA = new HashMap<>(regExs.size());
 //        constructSuccTable();
         for (Map.Entry<String, String> entry : regExs.entrySet()) {
+
             //Construct the NFA of all the regular expressions of the elements
             System.out.println("The automaton of " + entry.getKey() +", "+entry.getValue());
             Automaton thompsonAutomaton = thompsonConstruct(RegExConverter.infixToPostfix(entry.getValue()));
@@ -77,9 +82,139 @@ public class XmlChecker {
                 }
                 System.out.println();
             }
+            //Creating the DFA
+            Automaton dfaAutomaton = constructDfa(closure, thompsonAutomaton);
+            System.out.println(dfaAutomaton);
 //            System.out.println();
             regExNFA.put(entry.getKey(), thompsonAutomaton);
         }
+    }
+
+    private Automaton constructDfa(Map<String, Set<State>> closure, Automaton nfa) {
+        Automaton dfaAutomaton = new Automaton();
+        Set<Character> transchars = nfa.getAutomateTransitions(nfa.getStart(), new HashSet<String>());
+        Set<State> goalStates = closure.get(nfa.getStart().getName());
+        State newStart = createState(goalStates, transchars, closure, new HashMap<String, State>());
+        dfaAutomaton.setStart(newStart);
+        Set<State> finalStates = getFinalStates(newStart, nfa.getFinish(), new HashSet<String>());
+        dfaAutomaton.setFinalStates(finalStates);
+        return  dfaAutomaton;
+    }
+
+    private State createState(Set<State> goalStates, Set<Character> transchars, Map<String, Set<State>> closure, HashMap<String, State> done) {
+        if(goalStates == null || goalStates.size() <1)
+            return null;
+        String stateName = "";
+        for (State st : goalStates) {
+            stateName = stateName.concat(st.getName());
+        }
+        if (done.get(stateName) != null)
+            return done.get(stateName);
+        else {
+            State state = new State();
+            state.setName(stateName);
+            done.put(stateName, state);
+            for (Character transition : transchars) {
+                Set<State> newGoals = new HashSet<>();
+                for (State tmpState : goalStates) {
+                    if(tmpState.getTransitions() != null){
+                        State fState = tmpState.getTransitions().get(transition);
+                        if (fState != null) {
+                            newGoals.addAll(closure.get(fState.getName()));
+                        }
+                    }
+                }
+                if (newGoals.size() < 1) {
+                    state.addTransition(transition, null);
+                } else {
+                    State endState = createState(newGoals, transchars, closure, done);
+                    state.addTransition(transition, endState);
+                }
+            }
+            return state;
+        }
+    }
+
+    private Set<State> getFinalStates(State newStart, State finish, Set<String> visited) {
+        if (visited.contains(newStart.getName())) {
+            return null;
+        }else {
+            Set<State> finalStates = new HashSet<>();
+            visited.add(newStart.getName());
+            if(newStart.getName().contains(finish.getName())) {
+                finalStates.add(newStart);
+            }
+            for (Map.Entry<Character, State> entry : newStart.getTransitions().entrySet()) {
+                if(entry.getValue() != null && entry.getValue().getName().contains(finish.getName())) {
+                    finalStates.add(entry.getValue());
+                }
+                Set<State> states = null;
+                if (entry.getValue() != null)
+                    states = getFinalStates(entry.getValue(), finish, visited);
+                if (states != null)
+                    finalStates.addAll(states);
+            }
+            for (State state : newStart.getEpsilon()) {
+                String recString = state.toString(visited);
+                if(state.getName().contains(finish.getName())) {
+                    finalStates.add(state);
+                }
+                Set<State> states = getFinalStates(state, finish, visited);
+                if (states != null)
+                    finalStates.addAll(states);
+            }
+            return finalStates;
+        }
+    }
+
+    @Deprecated
+    private Automaton constructDfaFromClosure(Map<String, Set<State>> closure, Automaton nfa) {
+        //Determine all transitions in the automaton
+        Set<Character> transchars = nfa.getAutomateTransitions(nfa.getStart(), new HashSet<String>());
+        System.out.print("Transitions: " + transchars);
+        //Determine initial & final states
+        State state = new State();
+        Set<State> closureStates = closure.get(nfa.getStart().getName());
+        //Setting the name
+        String startName = "";
+        for (State st : closureStates) {
+            startName = startName.concat(st.getName());
+        }
+        state.setName(startName);
+        //This set contains the names of the states we need to build
+        List<String> toProcess = new ArrayList<>();
+        toProcess.add(startName);
+        ListIterator<String> iterator = toProcess.listIterator();
+
+        //In this loop, we'll have to build a state, for each transition symbol, the state will point to an epsilon-closure
+        while (iterator.hasNext()) {
+            String newStateName = iterator.next();
+            Set<State> eltsSet = closure.get(newStateName);
+            for (Character transition : transchars) {
+                State endState = new State();
+                Set<State> endStates = new HashSet<>();
+                for (State stateInClosure : closureStates) {
+                    if(stateInClosure.getTransitions().get(transition) != null) {
+                        eltsSet.addAll(closure.get(stateInClosure.getTransitions().get(transition)));
+                        String tmpName = "";
+                        //creating the name
+                        for (State st : closure.get(stateInClosure.getTransitions().get(transition))) {
+                            tmpName = tmpName.concat(st.getName());
+                        }
+                        iterator.add(tmpName);
+                    }
+                    endState = stateInClosure.getTransitions().get(transition);
+//                start.addTransition(transition, );
+                }
+
+            }
+        }
+        for (String stateName : toProcess) {
+            State endState = new State();
+
+        }
+
+        return null;
     }
 
     public Automaton thompsonConstruct(String regEx) {

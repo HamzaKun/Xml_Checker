@@ -8,6 +8,7 @@ import java.util.Set;
 public class Automaton {
     State start;
     State finish;
+    Set<State> finalStates;
 
     /**
      * The default constructor of the Automaton
@@ -64,6 +65,37 @@ public class Automaton {
     }
 
     /**
+     * This function returns all the transitions present in the Automata
+     * @param start represent the start state
+     * @param visited represents the visited states
+     * @return all the transitions in the automaton
+     */
+    public Set<Character> getAutomateTransitions(State start, Set<String> visited) {
+        if (visited.contains(start.getName())) {
+            return null;
+        } else {
+            Set<Character> automateTransitions = new HashSet<>();
+            visited.add(start.getName());
+            for (Map.Entry<Character, State> entry : start.getTransitions().entrySet()) {
+                automateTransitions.add(entry.getKey());
+                Set<Character> subAutTrans = getAutomateTransitions(entry.getValue(), visited);
+                if (subAutTrans != null) {
+                    automateTransitions.addAll(subAutTrans);
+                }
+            }
+            //Add transitions from the epsilon reachable states
+            for (State tmp :
+                    start.getEpsilon()){
+                Set<Character> subAutTrans = getAutomateTransitions(tmp, visited);
+                if (subAutTrans != null) {
+                    automateTransitions.addAll(subAutTrans);
+                }
+            }
+            return automateTransitions;
+        }
+    }
+
+    /**
      * This function, adds an epsilon transition from the finish to the start state
      * Used for * and +
      */
@@ -87,12 +119,21 @@ public class Automaton {
         this.finish = finish;
     }
 
+    public Set<State> getFinalStates() {
+        return finalStates;
+    }
+
+    public void setFinalStates(Set<State> finalStates) {
+        this.finalStates = finalStates;
+    }
+
     @Override
     public String toString() {
         Set<String> visited = new HashSet<>();
         return "Automaton{" +
                 "start=" + start.toString(visited) +
-                ", finish=" + finish.toString(visited) +
+                ", finish=" + (finish != null?finish.toString(visited):"NULL ") +
+                ", finishStates=" + finalStates +
                 '}';
     }
 }
