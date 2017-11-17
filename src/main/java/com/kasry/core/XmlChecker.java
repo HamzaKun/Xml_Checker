@@ -1,9 +1,9 @@
 package com.kasry.core;
 
-import com.kasry.dataModels.Automaton;
-import com.kasry.dataModels.Node;
-import com.kasry.dataModels.State;
-import com.kasry.dataModels.Tree;
+import com.kasry.dataStructures.Automaton;
+import com.kasry.dataStructures.Node;
+import com.kasry.dataStructures.State;
+import com.kasry.dataStructures.Tree;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,7 +15,6 @@ public class XmlChecker {
     private boolean wellFormed = false;
     private boolean valid = false;
     private Tree xmlTree;
-
 
     public void checkFile() {
         this.parseTree(xmlPath);

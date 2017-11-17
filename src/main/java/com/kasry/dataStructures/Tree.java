@@ -1,4 +1,4 @@
-package com.kasry.dataModels;
+package com.kasry.dataStructures;
 
 import java.util.*;
 

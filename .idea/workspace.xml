@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="7933c90c-4d82-4983-8e31-1066d5768aea" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/core/RegExConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/core/RegExConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/core/XmlChecker.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/core/XmlChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Automaton.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Automaton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/main/XmlCheckerMain.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/main/XmlCheckerMain.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Automaton.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Automaton.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Node.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/State.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/State.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java" afterPath="$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Tree.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,37 +28,81 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="Automaton.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Automaton.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Automaton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+            <state relative-caret-position="-946">
+              <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="docComment;method#Automaton#0;class#Automaton#0" expanded="false" />
+                <element signature="docComment;method#Automaton#1;class#Automaton#0" expanded="false" />
                 <element signature="method#Automaton#1;class#Automaton#0" expanded="false" />
-                <element signature="method#getEpsilonClosure#0;class#Automaton#0" expanded="false" />
                 <element signature="method#getAutomateTransitions#0;class#Automaton#0" expanded="false" />
-                <element signature="e#4113#4114#0" expanded="true" />
-                <element signature="e#4147#4148#0" expanded="true" />
-                <element signature="e#4205#4206#0" expanded="true" />
-                <element signature="e#4251#4252#0" expanded="true" />
+                <element signature="e#3761#3762#0" expanded="true" />
+                <element signature="e#3801#3802#0" expanded="true" />
+                <element signature="method#toString#0;class#Automaton#0" expanded="false" />
+                <element signature="method#match#0;class#Automaton#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XmlChecker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="State.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/State.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+              <folding>
+                <element signature="method#State#0;class#State#0" expanded="false" />
+                <element signature="method#State#1;class#State#0" expanded="false" />
+                <element signature="method#changeFinish#0;class#State#0" expanded="false" />
+                <element signature="method#toString#1;class#State#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegExConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/core/RegExConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1460">
+              <caret line="86" column="76" lean-forward="false" selection-start-line="86" selection-start-column="76" selection-end-line="86" selection-end-column="76" />
+              <folding>
+                <element signature="initializer##0;class#RegExConverter#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XmlChecker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/core/XmlChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+            <state relative-caret-position="20">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
+                <element signature="method#checkFile#0;class#XmlChecker#0" expanded="false" />
                 <element signature="method#checkValid#0;class#XmlChecker#0" expanded="false" />
+                <element signature="method#checkValidity#0;class#XmlChecker#0" expanded="false" />
+                <element signature="method#thompsonNfaToDfa#0;class#XmlChecker#0" expanded="false" />
+                <element signature="e#3030#3096#0" expanded="false" />
+                <element signature="e#3931#3978#0" expanded="false" />
                 <element signature="method#constructDfa#0;class#XmlChecker#0" expanded="false" />
                 <element signature="method#createState#0;class#XmlChecker#0" expanded="false" />
+                <element signature="method#getFinalStates#0;class#XmlChecker#0" expanded="false" />
                 <element signature="method#constructDfaFromClosure#0;class#XmlChecker#0" expanded="false" />
                 <element signature="method#thompsonConstruct#0;class#XmlChecker#0" expanded="false" />
+                <element signature="docComment;method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
                 <element signature="method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
+                <element signature="e#13624#13660#0" expanded="false" />
+                <element signature="docComment;method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+                <element signature="method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+                <element signature="e#18231#18274#0" expanded="false" />
+                <element signature="docComment;method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+                <element signature="method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+                <element signature="e#18933#18976#0" expanded="false" />
+                <element signature="docComment;method#parseTree#0;class#XmlChecker#0" expanded="false" />
                 <element signature="method#parseTree#0;class#XmlChecker#0" expanded="false" />
+                <element signature="e#20142#20185#0" expanded="false" />
                 <element signature="method#XmlChecker#1;class#XmlChecker#0" expanded="false" />
                 <element signature="method#toString#0;class#XmlChecker#0" expanded="false" />
               </folding>
@@ -63,57 +110,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tree.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java">
+      <file leaf-file-name="XmlCheckerMain.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/main/XmlCheckerMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="169">
+              <caret line="16" column="124" lean-forward="false" selection-start-line="16" selection-start-column="124" selection-end-line="16" selection-end-column="124" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Tree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="35" column="66" lean-forward="false" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
+              <folding>
+                <element signature="method#toString#0;class#Tree#0" expanded="false" />
+                <element signature="method#checkValidity#0;class#Tree#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XmlCheckerMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/main/XmlCheckerMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="17" column="124" lean-forward="true" selection-start-line="17" selection-start-column="124" selection-end-line="17" selection-end-column="124" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="example.dtd" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/example.dtd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="State.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/State.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+            <state relative-caret-position="260">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#983#984#0" expanded="true" />
-                <element signature="e#1032#1033#0" expanded="true" />
-                <element signature="e#1619#1620#0" expanded="true" />
-                <element signature="e#1658#1659#0" expanded="true" />
+                <element signature="method#Node#0;class#Node#0" expanded="false" />
+                <element signature="method#Node#1;class#Node#0" expanded="false" />
+                <element signature="method#childrendAsString#0;class#Node#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -148,14 +176,17 @@
         <option value="$PROJECT_DIR$/src/main/resources/example.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/core.java" />
         <option value="$PROJECT_DIR$/src/main/resources/example2.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kasry/core/RegExConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/State.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kasry/main/XmlCheckerMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Automaton.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kasry/core/XmlChecker.java" />
         <option value="$PROJECT_DIR$/src/main/resources/example.dtd" />
+        <option value="$PROJECT_DIR$/src/main/resources/question.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/question.dtd" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Automaton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kasry/core/RegExConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kasry/core/XmlChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kasry/main/XmlCheckerMain.java" />
       </list>
     </option>
   </component>
@@ -256,7 +287,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="kasry" type="462c0819:PsiDirectoryNode" />
-              <item name="dataModels" type="462c0819:PsiDirectoryNode" />
+              <item name="dataStructures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Xml_Checker" type="b2602c69:ProjectViewProjectNode" />
@@ -289,7 +320,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../XML_Generator" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -438,7 +469,7 @@
       <workItem from="1510651556328" duration="9343000" />
       <workItem from="1510735794855" duration="24831000" />
       <workItem from="1510822064508" duration="6044000" />
-      <workItem from="1510828149592" duration="24232000" />
+      <workItem from="1510828149592" duration="50599000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1510602567874</created>
@@ -475,11 +506,25 @@
       <option name="project" value="LOCAL" />
       <updated>1510857964029</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Adding the checking function.&#10;Verifying if the Xml is valid for a given DTD.">
+      <created>1510867869866</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1510867869866</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Small updates.&#10;Need to check special cases.">
+      <created>1510919185088</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1510919185088</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99739000" />
+    <option name="totallyTimeSpent" value="126106000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -591,7 +636,9 @@
     <MESSAGE value="Adding the regular expression's converter from infix to postfix form." />
     <MESSAGE value="Adding epsilon-closure to the Automaton class.&#10;Updating the output function of the State as a DFS." />
     <MESSAGE value="Constructing the DFA from the NFA." />
-    <option name="LAST_COMMIT_MESSAGE" value="Constructing the DFA from the NFA." />
+    <MESSAGE value="Adding the checking function.&#10;Verifying if the Xml is valid for a given DTD." />
+    <MESSAGE value="Small updates.&#10;Need to check special cases." />
+    <option name="LAST_COMMIT_MESSAGE" value="Small updates.&#10;Need to check special cases." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -604,82 +651,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/kasry/core/XmlChecker.java</url>
-          <line>529</line>
+          <line>530</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java</url>
-          <line>45</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Tree.java</url>
+          <line>46</line>
           <properties />
-          <option name="timeStamp" value="47" />
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="49" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Automaton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Automaton#1;class#Automaton#0" expanded="false" />
-            <element signature="method#getEpsilonClosure#0;class#Automaton#0" expanded="false" />
-            <element signature="method#getAutomateTransitions#0;class#Automaton#0" expanded="false" />
-            <element signature="e#4113#4114#0" expanded="true" />
-            <element signature="e#4147#4148#0" expanded="true" />
-            <element signature="e#4205#4206#0" expanded="true" />
-            <element signature="e#4251#4252#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/core/XmlChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="66" column="9" lean-forward="true" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
-          <folding>
-            <element signature="method#checkValid#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#constructDfa#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#createState#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#constructDfaFromClosure#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#thompsonConstruct#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#parseTree#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#XmlChecker#1;class#XmlChecker#0" expanded="false" />
-            <element signature="method#toString#0;class#XmlChecker#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/main/XmlCheckerMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="21" column="54" lean-forward="false" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/example.dtd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
@@ -695,7 +686,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1000">
           <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
@@ -715,13 +706,29 @@
         <state relative-caret-position="1980">
           <caret line="99" column="36" lean-forward="false" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="36" />
           <folding>
+            <element signature="method#checkFile#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#checkValid#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkValidity#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#thompsonNfaToDfa#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#3030#3096#0" expanded="false" />
+            <element signature="e#3931#3978#0" expanded="false" />
             <element signature="method#constructDfa#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#createState#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#getFinalStates#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#constructDfaFromClosure#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#thompsonConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="docComment;method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#13624#13660#0" expanded="false" />
+            <element signature="docComment;method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18231#18274#0" expanded="false" />
+            <element signature="docComment;method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18933#18976#0" expanded="false" />
+            <element signature="docComment;method#parseTree#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#parseTree#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#20142#20185#0" expanded="false" />
             <element signature="method#XmlChecker#1;class#XmlChecker#0" expanded="false" />
             <element signature="method#toString#0;class#XmlChecker#0" expanded="false" />
           </folding>
@@ -738,7 +745,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
@@ -754,7 +761,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1000">
           <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
@@ -767,13 +774,29 @@
         <state relative-caret-position="1640">
           <caret line="82" column="25" lean-forward="true" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
           <folding>
+            <element signature="method#checkFile#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#checkValid#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkValidity#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#thompsonNfaToDfa#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#3030#3096#0" expanded="false" />
+            <element signature="e#3931#3978#0" expanded="false" />
             <element signature="method#constructDfa#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#createState#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#getFinalStates#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#constructDfaFromClosure#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#thompsonConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="docComment;method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#13624#13660#0" expanded="false" />
+            <element signature="docComment;method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18231#18274#0" expanded="false" />
+            <element signature="docComment;method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18933#18976#0" expanded="false" />
+            <element signature="docComment;method#parseTree#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#parseTree#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#20142#20185#0" expanded="false" />
             <element signature="method#XmlChecker#1;class#XmlChecker#0" expanded="false" />
             <element signature="method#toString#0;class#XmlChecker#0" expanded="false" />
           </folding>
@@ -805,7 +828,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
@@ -821,7 +844,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1000">
           <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
@@ -834,13 +857,29 @@
         <state relative-caret-position="1420">
           <caret line="71" column="52" lean-forward="true" selection-start-line="71" selection-start-column="52" selection-end-line="71" selection-end-column="52" />
           <folding>
+            <element signature="method#checkFile#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#checkValid#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkValidity#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#thompsonNfaToDfa#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#3030#3096#0" expanded="false" />
+            <element signature="e#3931#3978#0" expanded="false" />
             <element signature="method#constructDfa#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#createState#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#getFinalStates#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#constructDfaFromClosure#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#thompsonConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="docComment;method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#13624#13660#0" expanded="false" />
+            <element signature="docComment;method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18231#18274#0" expanded="false" />
+            <element signature="docComment;method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18933#18976#0" expanded="false" />
+            <element signature="docComment;method#parseTree#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#parseTree#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#20142#20185#0" expanded="false" />
             <element signature="method#XmlChecker#1;class#XmlChecker#0" expanded="false" />
             <element signature="method#toString#0;class#XmlChecker#0" expanded="false" />
           </folding>
@@ -857,7 +896,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
@@ -865,7 +904,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
           <caret line="55" column="46" lean-forward="false" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
@@ -886,13 +925,29 @@
         <state relative-caret-position="520">
           <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
           <folding>
+            <element signature="method#checkFile#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#checkValid#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkValidity#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#thompsonNfaToDfa#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#3030#3096#0" expanded="false" />
+            <element signature="e#3931#3978#0" expanded="false" />
             <element signature="method#constructDfa#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#createState#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#getFinalStates#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#constructDfaFromClosure#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#thompsonConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="docComment;method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#13624#13660#0" expanded="false" />
+            <element signature="docComment;method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18231#18274#0" expanded="false" />
+            <element signature="docComment;method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18933#18976#0" expanded="false" />
+            <element signature="docComment;method#parseTree#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#parseTree#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#20142#20185#0" expanded="false" />
             <element signature="method#XmlChecker#1;class#XmlChecker#0" expanded="false" />
             <element signature="method#toString#0;class#XmlChecker#0" expanded="false" />
           </folding>
@@ -909,7 +964,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
@@ -922,13 +977,29 @@
         <state relative-caret-position="840">
           <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
           <folding>
+            <element signature="method#checkFile#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#checkValid#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkValidity#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#thompsonNfaToDfa#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#3030#3096#0" expanded="false" />
+            <element signature="e#3931#3978#0" expanded="false" />
             <element signature="method#constructDfa#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#createState#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#getFinalStates#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#constructDfaFromClosure#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#thompsonConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="docComment;method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#13624#13660#0" expanded="false" />
+            <element signature="docComment;method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18231#18274#0" expanded="false" />
+            <element signature="docComment;method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18933#18976#0" expanded="false" />
+            <element signature="docComment;method#parseTree#0;class#XmlChecker#0" expanded="false" />
             <element signature="method#parseTree#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#20142#20185#0" expanded="false" />
             <element signature="method#XmlChecker#1;class#XmlChecker#0" expanded="false" />
             <element signature="method#toString#0;class#XmlChecker#0" expanded="false" />
           </folding>
@@ -969,14 +1040,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/example.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/example1.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -993,13 +1056,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/core/Util.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/core/RegExConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-911">
-          <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -1017,17 +1073,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/com/kasry/dataModels/Automaton.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/State.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/example.dtd">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#1032#1033#0" expanded="true" />
-            <element signature="e#1619#1620#0" expanded="true" />
-            <element signature="e#1658#1659#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,70 +1089,157 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/example.dtd">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/example.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+        <state relative-caret-position="140">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Automaton.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/question.dtd">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="4" lean-forward="true" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/question.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/25001_nodes.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/exam.dtd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generated files/generatedFile0.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+          <folding>
+            <element signature="method#State#0;class#State#0" expanded="false" />
+            <element signature="method#State#1;class#State#0" expanded="false" />
+            <element signature="method#changeFinish#0;class#State#0" expanded="false" />
+            <element signature="method#toString#1;class#State#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="35" column="66" lean-forward="false" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
+          <folding>
+            <element signature="method#toString#0;class#Tree#0" expanded="false" />
+            <element signature="method#checkValidity#0;class#Tree#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/core/RegExConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1460">
+          <caret line="86" column="76" lean-forward="false" selection-start-line="86" selection-start-column="76" selection-end-line="86" selection-end-column="76" />
+          <folding>
+            <element signature="initializer##0;class#RegExConverter#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Automaton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-946">
+          <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;method#Automaton#0;class#Automaton#0" expanded="false" />
+            <element signature="docComment;method#Automaton#1;class#Automaton#0" expanded="false" />
             <element signature="method#Automaton#1;class#Automaton#0" expanded="false" />
-            <element signature="method#getEpsilonClosure#0;class#Automaton#0" expanded="false" />
             <element signature="method#getAutomateTransitions#0;class#Automaton#0" expanded="false" />
-            <element signature="e#4113#4114#0" expanded="true" />
-            <element signature="e#4147#4148#0" expanded="true" />
-            <element signature="e#4205#4206#0" expanded="true" />
-            <element signature="e#4251#4252#0" expanded="true" />
+            <element signature="e#3761#3762#0" expanded="true" />
+            <element signature="e#3801#3802#0" expanded="true" />
+            <element signature="method#toString#0;class#Automaton#0" expanded="false" />
+            <element signature="method#match#0;class#Automaton#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataStructures/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
+            <element signature="method#Node#1;class#Node#0" expanded="false" />
+            <element signature="method#childrendAsString#0;class#Node#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/core/XmlChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="method#checkFile#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkValid#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkValidity#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#thompsonNfaToDfa#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#3030#3096#0" expanded="false" />
+            <element signature="e#3931#3978#0" expanded="false" />
+            <element signature="method#constructDfa#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#createState#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#getFinalStates#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#constructDfaFromClosure#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#thompsonConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="docComment;method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#13624#13660#0" expanded="false" />
+            <element signature="docComment;method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#parseDtd#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18231#18274#0" expanded="false" />
+            <element signature="docComment;method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#checkWellFormedness#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#18933#18976#0" expanded="false" />
+            <element signature="docComment;method#parseTree#0;class#XmlChecker#0" expanded="false" />
+            <element signature="method#parseTree#0;class#XmlChecker#0" expanded="false" />
+            <element signature="e#20142#20185#0" expanded="false" />
+            <element signature="method#XmlChecker#1;class#XmlChecker#0" expanded="false" />
+            <element signature="method#toString#0;class#XmlChecker#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/main/XmlCheckerMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="17" column="124" lean-forward="true" selection-start-line="17" selection-start-column="124" selection-end-line="17" selection-end-column="124" />
+        <state relative-caret-position="169">
+          <caret line="16" column="124" lean-forward="false" selection-start-line="16" selection-start-column="124" selection-end-line="16" selection-end-column="124" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/dataModels/Tree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kasry/core/XmlChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-          <folding>
-            <element signature="method#checkValid#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#constructDfa#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#createState#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#constructDfaFromClosure#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#thompsonConstruct#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#glushkovConstruct#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#parseTree#0;class#XmlChecker#0" expanded="false" />
-            <element signature="method#XmlChecker#1;class#XmlChecker#0" expanded="false" />
-            <element signature="method#toString#0;class#XmlChecker#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

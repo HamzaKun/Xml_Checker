@@ -22,8 +22,7 @@ public class RegExConverter {
     };
 
     /**
-     * Get character precedence.
-     *
+     * Returns the precedence of a character c
      * @param c character
      * @return corresponding precedence
      */
@@ -61,7 +60,6 @@ public class RegExConverter {
     /**
      * Convert regular expression from infix to postfix notation using
      * Shunting-yard algorithm.
-     *
      * @param regex infix notation
      * @return postfix notation
      */
