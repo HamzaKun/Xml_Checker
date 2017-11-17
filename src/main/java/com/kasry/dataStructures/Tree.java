@@ -45,6 +45,11 @@ public class Tree {
                 Automaton currentAutomato = regExDFA.get(current.getData());
                 String childrenString = current.childrendAsString();
                 isValid = currentAutomato.match(childrenString);
+                if (!isValid) {
+                    System.out.println(current + "\nisValid :" + isValid);
+                    System.out.println(childrenString);
+                    System.out.println(currentAutomato);
+                }
                 for (Node child :
                         current.getChildren()) {
                     stack.push(child);

@@ -17,9 +17,32 @@ public class XmlChecker {
     private Tree xmlTree;
 
     public void checkFile() {
+        Runtime rt = Runtime.getRuntime();
+        long prevTotal = rt.totalMemory();
+        long prevFree = rt.freeMemory();
+
+        long start = System.nanoTime();
         this.parseTree(xmlPath);
+
+        double parseInNa = (System.nanoTime() - start);
+//        System.out.println("parsing ms: " + parseInNa* 1.0e-6);
+        long startWell = System.nanoTime();
         checkWellFormedness();
+        double wellInNa = (System.nanoTime() - startWell);
+//        System.out.println("wellForm ms: " + (wellInNa* 1.0e-6));
+        long startVal = System.nanoTime();
         checkValidity();
+        double valInNa = (System.nanoTime() - startVal);
+//        System.out.println(parseInNa* 1.0e-6 + "," + wellInNa* 1.0e-6 + "," + valInNa* 1.0e-6);
+        long total = rt.totalMemory();
+        long free = rt.freeMemory();
+//        if (total != prevTotal || free != prevFree) {
+//            System.out.println(
+//                    String.format("%s,%s,%s",
+//                            total ,
+//                            free ,
+//                            total - free));
+////        }
     }
 
     private void checkValid() {

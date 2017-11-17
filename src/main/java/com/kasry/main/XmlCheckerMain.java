@@ -15,7 +15,6 @@ public class XmlCheckerMain {
         //First I'll create a method that reads the file, and checks if the file is well-formed
         String path = "D:\\Documents\\Data & Knowledge\\Period 1\\Java projects\\Xml_Checker\\src\\main\\resources\\example.xml";
         String dpath = "D:\\Documents\\Data & Knowledge\\Period 1\\Java projects\\Xml_Checker\\src\\main\\resources\\example.dtd";
-        String dpath1 = "D:/Documents/Data & Knowledge/Period 1/Java projects/Xml_Checker/src/main/resources/exampleBig.dtd";
         String xmlPath = path.replace("\\", "/");
         String dtdPath = dpath.replace("\\", "/");;
         XmlChecker xmlChecker = new XmlChecker(xmlPath, dtdPath);
@@ -27,18 +26,21 @@ public class XmlCheckerMain {
         xmlChecker = new XmlChecker(path, dpath);
         xmlChecker.checkFile();
 
+        System.out.println("================================================================");
 
-        String folderPath = "D:/Documents/Data & Knowledge/Period 1/Java projects/Xml_Generator/generated";
+        String folderPath = "D:/Documents/Data & Knowledge/Period 1/Java projects/Xml_Generator/massyTest";
+        String dpath1 = "D:/Documents/Data & Knowledge/Period 1/Java projects/Xml_Generator/massyTest/exam.dtd";
         File folder = new File(folderPath);
         File[] files = folder.listFiles();
         System.out.println(files.length);
         for (final File fileEntry : files) {
-            if (fileEntry.getName().equals("example_0.xml")) {
+            System.out.println(fileEntry.getName());
+//            System.out.print(fileEntry.getName().split("_")[0] + ",");
+            if (fileEntry.getName().contains(".xml")) {
                 xmlChecker = new XmlChecker(fileEntry.getPath(), dpath1);
                 xmlChecker.checkFile();
                 System.out.println();
             }
-//            System.out.println(fileEntry.getPath());
         }
 //        xmlChecker.checkFile();
 //        System.out.println("The validity of the xml file given as an input: " + xmlChecker.isWellFormed());
