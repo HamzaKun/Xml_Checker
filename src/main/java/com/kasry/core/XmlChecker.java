@@ -18,6 +18,7 @@ public class XmlChecker {
 
 
     public void checkFile() {
+        this.parseTree(xmlPath);
         checkWellFormedness();
         checkValidity();
     }
@@ -64,7 +65,7 @@ public class XmlChecker {
         Map<String, Automaton> regExDFA = thompsonNfaToDfa(regExs);
         //Verifying the validity of the xml file according to the dtd
         boolean valid = xmlTree.checkValidity(regExDFA);
-        System.out.println(valid);
+        System.out.println((valid?"Valid":"Not Valid"));
     }
 
     private Map<String, Automaton> thompsonNfaToDfa(Map<String, String> regExs) {
@@ -74,21 +75,21 @@ public class XmlChecker {
         for (Map.Entry<String, String> entry : regExs.entrySet()) {
 
             //Construct the NFA of all the regular expressions of the elements
-            System.out.println("The automaton of " + entry.getKey() +", "+entry.getValue());
+//            System.out.println("The automaton of " + entry.getKey() +", "+entry.getValue());
             Automaton thompsonAutomaton = thompsonConstruct(RegExConverter.infixToPostfix(entry.getValue()));
-            System.out.println(thompsonAutomaton);
+//            System.out.println(thompsonAutomaton);
             Map<String, Set<State>> closure = thompsonAutomaton.getEpsilonClosure(thompsonAutomaton.getStart(), new HashSet<String>());
-            for (Map.Entry<String, Set<State>> tmp : closure.entrySet()) {
+           /* for (Map.Entry<String, Set<State>> tmp : closure.entrySet()) {
                 System.out.print(tmp.getKey() + ": ");
                 for (State st :
                         tmp.getValue()) {
                     System.out.print(st.getName());
                 }
                 System.out.println();
-            }
+            }*/
             //Creating the DFA
             Automaton dfaAutomaton = constructDfa(closure, thompsonAutomaton);
-            System.out.println(dfaAutomaton);
+//            System.out.println(dfaAutomaton);
 //            System.out.println();
             regExNFA.put(entry.getKey(), thompsonAutomaton);
             regExDFA.put(entry.getKey(), dfaAutomaton);
@@ -412,7 +413,7 @@ public class XmlChecker {
             String line = br.readLine();
             Stack<String> elements = new Stack<>();
             while (line != null) {
-                System.out.println(line);
+//                System.out.println(line);
                 //The first element is the "0|1" and the second is the element name
                 String[] parts = line.split(" ");
                 if (Integer.parseInt(parts[0]) == 0){
@@ -425,6 +426,7 @@ public class XmlChecker {
             if( elements.empty()) {
                 wellFormed = true;
             }
+            System.out.println((wellFormed?"Well-formed":"not Well-formed"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -444,7 +446,7 @@ public class XmlChecker {
             Node actualNode = xmlTree.getRoot();
             // For all the nodes of the tree
             while (line != null) {
-                System.out.println(line);
+//                System.out.println(line);
                 //The first element is the "0|1" and the second is the element name
                 String[] parts = line.split(" ");
                 // First tag's element
